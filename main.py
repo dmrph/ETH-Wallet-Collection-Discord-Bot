@@ -101,6 +101,13 @@ async def __csv(ctx):
   
   df = pd.DataFrame({'Username': usernames, 'Wallets': wallets})
   df.to_csv('wl.csv')
-    
+
+#tell users how to enter eth address into bot  
+@bot.command()
+async def __how(ctx):
+  await ctx.message.delete()
+  await ctx.send('Use \\\wallet + [Address] to enter your ETH address.')
+
+  
 token = os.environ['secret_token']
 bot.run(token)
